@@ -66,17 +66,6 @@ class DSL {
     this.matches.push(url, name, callback);
   }
 
-  resource(name, options = {}, callback) {
-    if (arguments.length === 2 && typeof options === 'function') {
-      callback = options;
-      options = {};
-    }
-
-    options.resetNamespace = true;
-    deprecate('this.resource() is deprecated. Use this.route(\'name\', { resetNamespace: true }, function () {}) instead.', false, { id: 'ember-routing.router-resource', until: '3.0.0' });
-    this.route(name, options, callback);
-  }
-
   generate() {
     let dslMatches = this.matches;
 
